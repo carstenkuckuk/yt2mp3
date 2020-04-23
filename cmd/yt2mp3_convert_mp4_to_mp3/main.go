@@ -8,7 +8,7 @@ import (
 
 func main(){
 	if len(os.Args) != 3 {
-		fmt.Println("Usage: yt2mp3_convert_mp4_to_mp3 <MP4-Filename> <MP3-Filename")
+		fmt.Println("Usage: yt2mp3_convert_mp4_to_mp3 <MP4-Filename> <MP3-Filename>")
 	} else {
 		mp4filename := os.Args[1]
 		mp3filename := os.Args[2]

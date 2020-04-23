@@ -8,7 +8,7 @@ import (
 
 func main(){
 	if len(os.Args) != 3 {
-		fmt.Println("Usage: yt2mp3_download_as_mp4 <Youtube-URL> <MP4-Filename")
+		fmt.Println("Usage: yt2mp3_download_as_mp4 <Youtube-URL> <MP4-Filename>")
 	} else {
 		url := os.Args[1]
 		mp4filename := os.Args[2]
