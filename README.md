@@ -25,4 +25,8 @@ yt2mp3_download_as_mp4.exe https://www.youtube.com/watch?v=pXRux1bwnFI Louane_Mi
 yt2mp3_convert_mp4_to_mp3.exe Louane_Midi_sur_novembre_ft_Julien_Dore.mp4 Louane_Midi_sur_novembre_ft_Julien_Dore.mp3 
 ```
 
+## Write ID3V2 tags for album, artist, title, and download URL to an MP3 file
+```
+yt2mp3_write_tags_to_mp3.exe Louane_Midi_sur_novembre_ft_Julien_Dore.mp3  "Youtube Downloads" "Louane" "Midi sur novembre (ft. Julien Doré)" ""https://www.youtube.com/watch?v=pXRux1bwnFI"
+```
 
