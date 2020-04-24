@@ -14,7 +14,13 @@ func main(){
 	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=UXnJzrMKBK8", "AgnesObel_DeezerSession.mp4")
 	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=oUGrWlfz9Ww", "LEJ_LeRingLive.mp4")
 	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=pXRux1bwnFI", "Louane_Midi_sur_novembre_ft_Julien_Dore.mp4")
-
+	
+	ExtractJpegFromMP4("FaadaFreddy_Deezer_LeRing.mp4", "00:02:22", "FaadaFreddy_Deezer_LeRing.jpg")
+	ExtractJpegFromMP4("ChristopheObispo_LesMotsBleus.mp4", "00:01:30", "ChristopheObispo_LesMotsBleus.jpg")
+	ExtractJpegFromMP4("AgnesObel_DeezerSession.mp4", "00:01:20", "AgnesObel_DeezerSession.jpg")
+	ExtractJpegFromMP4("LEJ_LeRingLive.mp4", "00:01:35", "LEJ_LeRingLive.jpg")
+	ExtractJpegFromMP4("Louane_Midi_sur_novembre_ft_Julien_Dore.mp4", "00:00:31", "Louane_Midi_sur_novembre_ft_Julien_Dore.jpg")
+	
 	ConvertMP4FileToMP3File("FaadaFreddy_Deezer_LeRing.mp4","FaadaFreddy_Deezer_LeRing.mp3")
 	ConvertMP4FileToMP3File("ChristopheObispo_LesMotsBleus.mp4", "ChristopheObispo_LesMotsBleus.mp3")
 	ConvertMP4FileToMP3File("AgnesObel_DeezerSession.mp4", "AgnesObel_DeezerSession.mp3" )

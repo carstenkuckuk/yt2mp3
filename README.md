@@ -20,6 +20,11 @@ available under ./cmd
 yt2mp3_download_as_mp4.exe https://www.youtube.com/watch?v=pXRux1bwnFI Louane_Midi_sur_novembre_ft_Julien_Dore.mp4
 ```
 
+## Extract a JPEG still image from an MP4 file
+```
+yt2mp3_extract_jpeg_from_mp4.exe Louane_Midi_sur_novembre_ft_Julien_Dore.mp4 00:00:31 Louane_Midi_sur_novembre_ft_Julien_Dore.jpg
+```
+
 ## Extract the audio track of an MP4 file and write it to an MP3 file
 ```
 yt2mp3_convert_mp4_to_mp3.exe Louane_Midi_sur_novembre_ft_Julien_Dore.mp4 Louane_Midi_sur_novembre_ft_Julien_Dore.mp3 

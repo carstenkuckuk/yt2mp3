@@ -42,3 +42,17 @@ func WriteID3V2TagsToMP3File(MP3Filename string , Album string , Artist string ,
 	tag.AddCommentFrame(comment)
 	tag.Save()
 }
+
+func ExtractJpegFromMP4(mp4filename string, timecode string, jpegfilename string){
+// ffmpeg -ss 00:02:21 -i FaadaFreddy_Deezer_LeRing.mp4 -vframes 1 -q:v 2 output.jpg
+	// Benutze externes Tool C:\bin\ffmpeg zum Konvertieren von mp4 nach jpeg:
+	fmt.Println("Vor dem Exec")
+	cmd := exec.Command("c:\\bin\\ffmpeg.exe", "-ss", timecode, "-i", mp4filename, "-vframes", "1", "-q:v", "2", jpegfilename, "-y")
+	
+	myerr:=cmd.Run()
+	fmt.Println("Nach dem exec", myerr)
+
+
+
+
+}
