@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/bogem/id3v2"
 	. "github.com/kkdai/youtube"
+	"io/ioutil"
 	"os/exec"
 )
 
@@ -26,7 +27,7 @@ func ConvertMP4FileToMP3File(MP4Filename string, MP3Filename string){
 	fmt.Println("Nach dem exec", myerr)
 }
 
-func WriteID3V2TagsToMP3File(MP3Filename string , Album string , Artist string , Title string, Comment string){
+func WriteID3V2TagsToMP3File(MP3Filename string , Album string , Artist string , Title string, Comment string, JPEGfile string){
 	// Schreibe id3v2-Tags:
 	tag, _ := id3v2.Open(MP3Filename, id3v2.Options{Parse:true})
 	defer tag.Close()
@@ -40,6 +41,18 @@ func WriteID3V2TagsToMP3File(MP3Filename string , Album string , Artist string ,
 		Text:        Comment,
 	}
 	tag.AddCommentFrame(comment)
+	
+	artwork, err := ioutil.ReadFile(JPEGfile)
+	err = err
+	pic := id3v2.PictureFrame{
+		Encoding: 		id3v2.EncodingUTF8,
+		MimeType:		"image/jpeg",
+		PictureType:	id3v2.PTFrontCover,
+		Description:	"Front cover",
+		Picture:		artwork,
+	}
+	tag.AddAttachedPicture(pic)
+	
 	tag.Save()
 }
 
