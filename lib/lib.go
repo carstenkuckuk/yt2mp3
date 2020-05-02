@@ -4,8 +4,12 @@ import (
 	"fmt"
 	"github.com/bogem/id3v2"
 	. "github.com/kkdai/youtube"
+	"github.com/nfnt/resize"
+	"image/jpeg"
+	"os"
 	"io/ioutil"
 	"os/exec"
+	"strconv"
 )
 
 func DownloadVideoFromYoutubeURLToMp4File(YoutubeUrl string, MP4Filename string){
@@ -64,8 +68,32 @@ func ExtractJpegFromMP4(mp4filename string, timecode string, jpegfilename string
 	
 	myerr:=cmd.Run()
 	fmt.Println("Nach dem exec", myerr)
+}
+
+func ExtractJpeg300x300FromMP4(mp4filename string, timecode string, jpegfilename string){
+// ffmpeg -ss 00:02:21 -i FaadaFreddy_Deezer_LeRing.mp4 -vframes 1 -q:v 2 output.jpg
+	// Benutze externes Tool C:\bin\ffmpeg zum Konvertieren von mp4 nach jpeg:
+	fmt.Println("Vor dem Exec")
+	cmd := exec.Command("c:\\bin\\ffmpeg.exe", "-ss", timecode, "-i", mp4filename, "-vframes", "1", "-q:v", "2", jpegfilename, "-y")
+	
+	myerr:=cmd.Run()
+	fmt.Println("Nach dem exec", myerr)
+	ResizeJPEGFileToSize(jpegfilename, jpegfilename, "300", "300")
+}
 
 
-
+func ResizeJPEGFileToSize(sourceJpgFile string, targetJpgFile string, xPixels string, yPixels string){
+	nSizeX,_:=strconv.Atoi(xPixels)
+	nSizeY,_:=strconv.Atoi(yPixels)
+	
+	// real work is done by https://github.com/nfnt/resize
+	file,_ := os.Open(sourceJpgFile)
+	img,_ := jpeg.Decode(file)
+	file.Close()
+	m:=resize.Thumbnail(uint(nSizeX), uint(nSizeY), img, resize.Lanczos3)
+	out,_:=os.Create(targetJpgFile)
+	defer out.Close()
+	jpeg.Encode(out, m, nil)
 
 }
+
