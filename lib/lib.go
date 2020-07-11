@@ -19,7 +19,8 @@ func DownloadVideoFromYoutubeURLToMp4File(YoutubeUrl string, MP4Filename string)
 	y := NewYoutube(true)
 	err := y.DecodeURL(YoutubeUrl)
 	fmt.Println("err:", err)
-	y.StartDownload( MP4Filename );
+	//  y.StartDownload( MP4Filename );
+	y.StartDownload(".", MP4Filename,"medium", 0)
 	fmt.Println("err:", err)
 }
 

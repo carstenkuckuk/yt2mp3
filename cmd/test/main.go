@@ -8,6 +8,54 @@ import (
 
 func main(){
 	fmt.Println("Hello World!")
+
+	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=sPsCXm14G58", "Louane_DonneMoiTonCoeur.mp4")
+	ExtractJpeg300x300FromMP4("Louane_DonneMoiTonCoeur.mp4", "00:00:55", "Louane_DonneMoiTonCoeur.jpg")
+	ConvertMP4FileToMP3File("Louane_DonneMoiTonCoeur.mp4","Louane_DonneMoiTonCoeur.mp3")
+	WriteID3V2TagsToMP3File("Louane_DonneMoiTonCoeur.mp3", "YoutubeDownloadsAlbum", "Louane", "Donne-moi ton coeur", 
+			"https://www.youtube.com/watch?v=sPsCXm14G58", "Louane_DonneMoiTonCoeur.jpg" )
+
+
+
+	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=uqsGUAM9WDk", "Hatik_Angela.mp4")
+	ExtractJpeg300x300FromMP4("Hatik_Angela.mp4", "00:00:07", "Hatik_Angela.jpg")
+	ConvertMP4FileToMP3File("Hatik_Angela.mp4","Hatik_Angela.mp3")
+	WriteID3V2TagsToMP3File("Hatik_Angela.mp3", "YoutubeDownloadsAlbum", "Hatik", "Angela", 
+			"https://www.youtube.com/watch?v=uqsGUAM9WDk", "Hatik_Angela.jpg" )
+
+	
+	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=aC7kn9cM1g0", "BlackEyedPeas_Mamacita.mp4")
+	ExtractJpeg300x300FromMP4("BlackEyedPeas_Mamacita.mp4", "00:00:18", "BlackEyedPeas_Mamacita.jpg")
+	ConvertMP4FileToMP3File("BlackEyedPeas_Mamacita.mp4","BlackEyedPeas_Mamacita.mp3")
+	WriteID3V2TagsToMP3File("BlackEyedPeas_Mamacita.mp3", "YoutubeDownloadsAlbum", "Black Eyed Peas, Ozuna, J. Rey Soul", "Mamacita", 
+			"https://www.youtube.com/watch?v=aC7kn9cM1g0", "BlackEyedPeas_Mamacita.jpg" )
+
+
+
+	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=Ueo742Ne73M", "RoniAlter_DevlisCalling_Victoires2019.mp4")
+	ExtractJpeg300x300FromMP4("RoniAlter_DevlisCalling_Victoires2019.mp4", "00:00:18", "RoniAlter_DevlisCalling_Victoires2019.jpg")
+	ConvertMP4FileToMP3File("RoniAlter_DevlisCalling_Victoires2019.mp4","RoniAlter_DevlisCalling_Victoires2019.mp3")
+	WriteID3V2TagsToMP3File("RoniAlter_DevlisCalling_Victoires2019.mp3", "YoutubeDownloadsAlbum", "Roni Alter", "Devil's calling #Victoires2019", 
+			"https://www.youtube.com/watch?v=Ueo742Ne73M", "RoniAlter_DevlisCalling_Victoires2019.jpg" )
+
+	
+	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=tN9O7o52iwM", "Foe_Nuria_Victoires2019.mp4")
+	ExtractJpeg300x300FromMP4("Foe_Nuria_Victoires2019.mp4", "00:00:42", "Foe_Nuria_Victoires2019.jpg")
+	ConvertMP4FileToMP3File("Foe_Nuria_Victoires2019.mp4","Foe_Nuria_Victoires2019.mp3")
+	WriteID3V2TagsToMP3File("Foe_Nuria_Victoires2019.mp3", "YoutubeDownloadsAlbum", "Foé", "Nuria #Victoires2019", 
+			"https://www.youtube.com/watch?v=tN9O7o52iwM", "Foe_Nuria_Victoires2019.jpg" )
+
+	
+
+	
+	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=om4VbId8nBM", "ClaraLuciani_LaGrenade_Victoires2019.mp4")
+	ExtractJpeg300x300FromMP4("ClaraLuciani_LaGrenade_Victoires2019.mp4", "00:00:17", "ClaraLuciani_LaGrenade_Victoires2019.jpg")
+	ConvertMP4FileToMP3File("ClaraLuciani_LaGrenade_Victoires2019.mp4","ClaraLuciani_LaGrenade_Victoires2019.mp3")
+	WriteID3V2TagsToMP3File("ClaraLuciani_LaGrenade_Victoires2019.mp3", "YoutubeDownloadsAlbum", "Clara Luciani", "La Grenade #Victoires2019", 
+			"https://www.youtube.com/watch?v=om4VbId8nBM", "ClaraLuciani_LaGrenade_Victoires2019.jpg" )
+
+	
+	
 	
 	DownloadVideoFromYoutubeURLToMp4File("https://www.youtube.com/watch?v=LYAvhujK4nA", "Dalida_AlainDeloin_Paroles_paroles.mp4")
 	ExtractJpeg300x300FromMP4("Dalida_AlainDeloin_Paroles_paroles.mp4", "00:00:10", "Dalida_AlainDeloin_Paroles_paroles.jpg")
