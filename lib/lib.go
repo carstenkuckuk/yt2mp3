@@ -71,12 +71,23 @@ func ExtractJpegFromMP4(mp4filename string, timecode string, jpegfilename string
 	fmt.Println("Nach dem exec", myerr)
 }
 
-func ExtractJpeg300x300FromMP4(mp4filename string, timecode string, jpegfilename string){
-// ffmpeg -ss 00:02:21 -i FaadaFreddy_Deezer_LeRing.mp4 -vframes 1 -q:v 2 output.jpg
+func ExtractJpeg200x200FromMP4(mp4filename string, timecode string, jpegfilename string){
+	// ffmpeg -ss 00:02:21 -i FaadaFreddy_Deezer_LeRing.mp4 -vframes 1 -q:v 2 output.jpg
 	// Benutze externes Tool C:\bin\ffmpeg zum Konvertieren von mp4 nach jpeg:
 	fmt.Println("Vor dem Exec")
 	cmd := exec.Command("c:\\bin\\ffmpeg.exe", "-ss", timecode, "-i", mp4filename, "-vframes", "1", "-q:v", "2", jpegfilename, "-y")
-	
+
+	myerr:=cmd.Run()
+	fmt.Println("Nach dem exec", myerr)
+	ResizeJPEGFileToSize(jpegfilename, jpegfilename, "200", "200")
+}
+
+func ExtractJpeg300x300FromMP4(mp4filename string, timecode string, jpegfilename string){
+	// ffmpeg -ss 00:02:21 -i FaadaFreddy_Deezer_LeRing.mp4 -vframes 1 -q:v 2 output.jpg
+	// Benutze externes Tool C:\bin\ffmpeg zum Konvertieren von mp4 nach jpeg:
+	fmt.Println("Vor dem Exec")
+	cmd := exec.Command("c:\\bin\\ffmpeg.exe", "-ss", timecode, "-i", mp4filename, "-vframes", "1", "-q:v", "2", jpegfilename, "-y")
+
 	myerr:=cmd.Run()
 	fmt.Println("Nach dem exec", myerr)
 	ResizeJPEGFileToSize(jpegfilename, jpegfilename, "300", "300")
@@ -98,3 +109,13 @@ func ResizeJPEGFileToSize(sourceJpgFile string, targetJpgFile string, xPixels st
 
 }
 
+func YoutubeToMP3(YoutubeURL string, FilenameStem string, SnapshotTimecode string, Album string, Artist string, Title string){
+	MP4Filename := FilenameStem+".mp4"
+	JPegFilename := FilenameStem+".jpg"
+	MP3Filename := FilenameStem+".mp3"
+
+	DownloadVideoFromYoutubeURLToMp4File(YoutubeURL, MP4Filename)
+	ExtractJpeg200x200FromMP4(MP4Filename, SnapshotTimecode, JPegFilename)
+	ConvertMP4FileToMP3File(MP4Filename,MP3Filename)
+	WriteID3V2TagsToMP3File(MP3Filename, Album, Artist, Title, YoutubeURL, JPegFilename )
+}
